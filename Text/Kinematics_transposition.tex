@@ -1,0 +1,212 @@
+\clearpage
+\section{Reaksjoner og reaksjonskinetikk}\label{sec:kinetics}
+Reaksjoner sies å være fundamentet i kjemisk industri. Reaksjoner er interaksjoner mellom stoffer som skaper nye stoffer. I \cref{sec:balanse_enkel} så vi hvordan vi kan sette opp en balanse med \cref{eq:balanse_generell}. I dette kapittelet er vi bare interessert i stoffmengde så vi switcher ut $\Phi$ med $n$. Denne delen viser fram mange ligninger så det er bare å holde tunga rett i munnen. Vi skal prøve å gå slavisk gjennom dem en etter en. Vi starter med å sette opp den generelle balansen for stoffmengde i systemet:
+
+\begin{equation}
+    \label{eq:spacies_balance}
+    \vecdot{n} = \vechat{n} + \vectil{n}
+\end{equation}
+
+La oss si at systemet vårt ikke har transport inn og ut (e.g. batch reaktor, $\vechat{n}=0$) så all akkumulering i systemet vårt skyldes reaksjoner innad i systemet vårt. Uten å bruke mye tid på forklaring så er genereringsleddet i balansen definert som:
+
+\begin{equation}
+    \begin{split}
+    \label{eq:generation_species}
+    \vecdot{n} =&\,  \vectil{n}\\
+    \vectil{n}=&\,V\mymat{N}^T\underline{\Tilde{\xi}}(\vec{c})
+    \end{split}
+\end{equation}
+
+
+
+$\mymat{N}^T$ er den støkiometriske matrisen til reaksjonene, $\underline{\Tilde{\xi}}$ er reaksjonsraten som en funksjon av konsentrasjoner og $V$ er volum. Volum ganges inn i ligningen for at $\vectil{n}$ skal ha riktig benevning. Reaksjonraten er en funksjon av konsentrasjon og reaksjonsrate-konstant. 
+
+\textbf{Eksempel}: Stochimetrisc species matrix\\
+Den støkimetriske matrisen blir laget ved å sette alle reksjonene på hver kolonne og hver reaktant/produkt på hver rad. 
+\begin{align*}
+    R_{x1}:&\hspace{1cm} \ce{4 NH3 + 5 O2 \leftrightarrow 4 NO + 6 H2O} \\
+    R_{x2}:&\hspace{1cm} \ce{2NO + O2 \leftrightarrow 2NO2}\\
+\end{align*}
+\begin{equation}
+    \mymat{N} = 
+    \bordermatrix{~ & R_{x1} & R_{x2}   \cr
+                  \ce{NH3} & 4 & 0  \cr
+                  \ce{O2} & 5 & 1 \cr
+                  \ce{NO} & 4 & 2 \cr
+                  \ce{H2O} & 6 & 0 \cr
+                  \ce{NO2} & 0 & 2
+                  }
+\end{equation}\\
+Husk at vi jobber med den trasponerte av $\mymat{N}$ i \cref{eq:generation_species}. 
+\subsection{Kjemisk potensial}
+Men hvordan vet vi hvilken vei som vil dominere reaksjonen? I \cref{sec:transport_effort} lærte vi om effortvariabler som driver transport. I kjemiske reaksjoner er det kjemisk potensial som bestemmer likevekten mellom reaktantene og produktene:
+\begin{equation}
+    \mu = \Big(
+    \frac{\partial U}{\partial n_i}
+    \Big)_{S,V,n_{j\neq i}}
+\end{equation}
+Likevel er det vanlig å bruke konsentrasjon som variabel i reaksjonligninger siden konsentrasjon er lettere å fysisk måle enn kjemisk potensial. Vi bruker ikke mye tid på dette men det er viktig å vite at den favoriserte reaksjonen er den som skaper den laveste endringen i kjemisk potensial $\Delta \mu$. Dette bygger opp under det du lærte om Gibbs frie energi i Prosessteknologi. Kjemisk potensial er avhengig av temperatur og kan også bli presentert som avviket fra ideell løsning: 
+
+\begin{equation}
+    \begin{split}
+    \mu_i =&\, \mu_{i}^0 +\mu_{i}^{excess}\\
+    \mu_i =&\, \mu_{i}^0 + RTln(x_i) 
+    \end{split}
+\end{equation}
+
+
+\subsection{Bestemme minimum sett med reaksjoner}\label{sec:set_med_reaksjoner}
+La oss si at vi ikke vet reaksjonene men har fått vite at vi har en menge forskjellige stoffer og ønsker å finne ut hvilke reaksjoner som skjer. 
+
+\textbf{Eksempel}:
+Vi har reaktantene:
+
+\begin{equation}
+    \label{eq:minimum_species}
+   \ce{H2O,CH4,CO,CO2,H2}
+\end{equation}
+Ved å se på stoffene i \ref{eq:minimum_species} trekker vi fram hvilke atomer de fem stoffene er bygd opp av. Her har vi 3 forskjellige atomer.
+
+\begin{equation}
+    \label{eq:minimum_species_atom}
+    \ce{H,O,C}
+\end{equation}
+
+Ved bruk av \cref{eq:minimum_species} og \cref{eq:minimum_species_atom} konstruerer vi en matrise som viser hvor mange atomer hvert stoff består av.
+
+\begin{equation}
+    \mymat{C} = 
+    \bordermatrix{~ & \ce{H2O} & \ce{CH4} & \ce{CO} &\ce{CO2} & \ce{H2}  \cr
+                  \ce{H} & 2 & 4 & 0 & 0 & 2\cr
+                  \ce{O} & 1 & 0 & 1 & 2 & 0\cr
+                  \ce{C} & 0 & 1 & 1 & 1 & 0\cr
+                  }
+\end{equation}
+For å finne antall reaksjoner må vi finne nullspacet til matrisen (null$(\mymat{C}$)). Vi ønsker å finne ut hvor mange av radene i $\mymat{C}$ som er lineært avhengige (antall kolonner minus ranken til $\mymat{C}$). Metodikken er å sette matrisen lik null og radredusere (Gauss reduction, løse matrisen) slik vi gjorde i matte 3. Fordi vi er late og regner med at din lineære algebra er på topp gidder vi ikke å vise alle operasjonene (se ABC-heftet kapittel 8.2 hvis du er usikker):
+
+\begin{align}
+    \mymat{C} =& 
+    \begin{bmatrix}
+        3 & 0 & 0 & 2 & 1 \\
+        0 & 3 & 0 & -1 & 1 \\
+        0 & 0 & 3 & 4 & -1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 0 & 0 & 2/3 & 1/3 \\
+        0 & 1 & 0 & -1/3 & 1/3 \\
+        0 & 0 & 1 & 4/3 & -1/3
+    \end{bmatrix}
+    \\[0.5cm]
+    \text{null}(\mymat{C}) =& 
+    \begin{bmatrix}
+        -2 & -1 \\
+        1 & -1 \\
+        -4 & 1 \\
+        3  & 0 \\
+        0 & 3
+    \end{bmatrix}
+     =
+     \begin{bmatrix}
+        -2/3 & -1/3 \\
+        1/3 & -1/3 \\
+        -4/3 & 1/3 \\
+        1  & 0 \\
+        0 & 1
+    \end{bmatrix}
+\end{align}
+
+Siden nullspacet til $\mymat{C}$ er en 5x2 matrise vet vi at vi har 2 frie variabler (2 kolonner) som gjør at ranken til $\mymat{C}$ er 3. Nå som vi vet at vi har to frie variabler kan vi konstruere 2 reaksjoner fra nullspacet vårt:
+
+\begin{equation}
+    \mymat{N} = 
+    \bordermatrix{~ & R_{x1} & R_{x2}   \cr
+                  \ce{H2O} & -2 & -1  \cr
+                  \ce{CH4} & 1 & -1 \cr
+                  \ce{CO} & -4 & 1 \cr
+                  \ce{CO2} & 3 & 0 \cr
+                  \ce{H2} & 0 & 3
+                  }
+\end{equation}
+
+\begin{align*}
+    R_{x1}:&\hspace{1cm} \ce{2H2O + 4CO \leftrightarrow CH4 + 3CO2} \\
+    R_{x2}:&\hspace{1cm} \ce{H2O + CH4 \leftrightarrow CO + 3H2}
+\end{align*}
+
+
+\subsection{Reaksjonsrater}
+\begin{equation}
+    \label{eq:reaksjonsrate}
+    \underline{\Tilde{\xi}}(\vec{c}) := \mymat{K}\,g_r(\vec{c})
+\end{equation}
+
+$\mymat{K}$ er en diagonal matrise bestående av reaksjonratene ($\xi$), hvor hver rad representerer en reaksjon. $g_r(\vec{c})$ er en funksjon av reaktantene til reaksjonen. For å forklare \cref{eq:reaksjonsrate} så disker vi opp med et eksempel. 
+
+\textbf{Eksempel}: Tre reaksjoner\\
+Si at vi har tre reaksjoner med tre reaksjonsrater:
+\begin{center}
+    \ce{A ->[\Tilde{\xi}_1] B}\\
+    \ce{B ->[\Tilde{\xi}_2] C}\\
+    \ce{C ->[\Tilde{\xi}_3] D}
+\end{center}
+
+Dette gir oss en $\underline{\Tilde{\xi}}$ vektor med tre elementer og en 3x3 matrise for $\mymat{K}$. Fra reaksjonsligningen antar vi at reaksjonen bare går en vei, så reaksjonsraten er kun avhengig av konsentrasjonen til reaktanten. Vi setter opp de tre reaksjonligningene for A,B og C:
+
+\begin{align}
+    \Tilde{\xi}_1 =& k^r_1\,c_A \\[0.3em]
+    \Tilde{\xi}_2 =& k^r_1\,c_B \\[0.3em]
+    \Tilde{\xi}_3 =& k^r_1\,c_C \\
+\end{align}
+
+Med tre utrykk for reaksjonratene setter vi dem sammen til et system av ligninger:
+\begin{align}
+    \label{eq:reaksjonsrate_utvidet1}
+    \underline{\Tilde{\xi}}(\vec{c}) =& \mymat{K}\,\mymat{S}\vec{c}
+    \\
+    \label{eq:reaksjonsrate_utvidet2}
+    \begin{bmatrix}
+    \Tilde{\xi}_1 \\[0.3em]
+    \Tilde{\xi}_2 \\[0.3em]
+    \Tilde{\xi}_2
+    \end{bmatrix}   
+    =
+    \begin{bmatrix}
+    k^r_1 & 0 & 0 \\[0.3em]
+    0 & k^r_2 & 0\\[0.3em]
+    0 & 0 & k^r_3
+    \end{bmatrix}
+    \,&
+   \begin{bmatrix}
+   1 & 0 & 0 & 0\\[0.3em]
+   0 & 1 & 0 & 0\\[0.3em]
+   0 & 0 & 1 & 0\\[0.3em]
+   \end{bmatrix}
+   \,
+   \begin{bmatrix}
+   c_A\\[0.3em]
+   c_B\\[0.3em]
+   c_C\\[0.3em]
+   c_D
+   \end{bmatrix}
+\end{align}
+\cref{eq:reaksjonsrate_utvidet1} er det samme som \cref{eq:reaksjonsrate} hvor av vi har satt inn $\mymat{S}\,\vec{c}$ for $g_r(\vec{c})$. Fra \cref{eq:reaksjonsrate_utvidet2} kan vi se at vi har et uttrykk for hver reaksjonrate. 
+
+
+
+\subsection{Reaksjonsratekonstanten}
+Reaksjonsratekonstansten er ikke konstant, ironisk nok, men sterkt avhengig av temperatur. Ofte bruker man Arrhenius ligning for å beregne denne $"$konstanten$"$. Arrhenius ligning kjenner du sikker igjen fra tidligere fag.
+
+\begin{equation}
+    \label{eq:arrhenius}
+    k^r_r(T) :=k^0_r\,e^{\frac{-E_{A}}{RT}}
+\end{equation}
+
+\begin{align*}
+    k^0_r =&\, \text{Pre-exponential factor} \\
+    E_A =&\, \text{Aktiveringsenergi} \\
+    R =&\, \text{Universal gasskonstant} \\
+    T =&\, \text{Temperatur}
+\end{align*}
+
+

@@ -1,0 +1,173 @@
+\documentclass[norsk]{article}
+
+%% Language and font encodings
+\usepackage[norsk]{babel}
+\selectlanguage{norsk}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{parskip}
+\usepackage[toc,page]{appendix}
+\usepackage{icomma}
+\usepackage{pdfpages}
+
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage[capitalise]{cleveref} 
+\crefdefaultlabelformat{#2\textbf{#1}#3}
+\usepackage{url}
+\usepackage{wasysym}
+\usepackage{float}
+\usepackage[autostyle]{csquotes}
+\usepackage{makecell}
+\usepackage{csquotes}
+\usepackage{mhchem}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{orange},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+\def\doubleunderline#1{\underline{\underline{#1}}}
+
+
+%% Adding bibliography
+\usepackage{biblatex}
+\addbibresource{bibliography.bib}
+\renewcommand{\baselinestretch}{1.5}
+
+%% Appendix
+\usepackage{appendix}
+
+%% My commands, la til dem siden vi følger Hainz notasjon
+\newcommand{\vecdot}[1]{\underline{\dot{\textbf{#1}}}}  
+\newcommand{\vechat}[1]{\underline{\hat{\textbf{#1}}}} 
+\newcommand{\mymat}[1]{\doubleunderline{\textbf{#1}}}
+\newcommand{\vectil}[1]{\underline{\Tilde{\textbf{#1}}}}
+\renewcommand{\vec}[1]{\underline{\textbf{#1}}}
+
+%souble underscore
+\newlength\dunder
+\settowidth{\dunder}{\_}
+\newcommand{\twound}{\rule{2\dunder}{0.2pt}}
+
+%%
+
+
+%% Listing
+%\usepackage{listings}
+%\definecolor{mygreen}{RGB}{28,120,0}
+%\lstset{
+%  language=Matlab,
+%  numbers=left,
+ % stepnumber=1,
+%  numbersep=10pt,
+%  tabsize=4,
+%  showspaces=false,
+%  showstringspaces=false
+%  breaklines=true
+%  commentstyle=\color{mygreen}
+%  frame = single
+%}
+%
+
+\title{Kompendium i TKP4106 Prosessmodellering \\
+\large{ABC på 123}}
+\author{Eskild Ruud Mageli}
+%    \small{co-forfatter}\\
+%    \small{Anders Runningen}}
+%\subtitle{A closer look at the expenses}
+%\subject{a funny paper}
+
+%\date{May 2018}
+
+\begin{document}
+\vbox{
+    \centering
+    \maketitle
+    \includegraphics[scale=0.5]{Figures/massebalanser_flere_systemer} 
+    
+
+     %this typesets the contents of \title, \author and \date
+}
+\vfill
+    \begin{center}
+        \large{Kompendiumskomiteen\\ Høiskolens Chemikerforening\\komkom@hc.ntnu.no}    
+    \end{center}
+    
+\clearpage
+\begin{center}
+\topskip0pt
+\vspace*{\fill}
+\large{Til min kjære 96\%-flaske}
+\vspace*{\fill}
+
+
+     \vfill
+    \Large{\textbf{Medvirkende til kompendiet}}\\
+    
+    \large{Ander Runningen (kapittel: Shell balance) \\
+    Kristine Øya (Korrektur) \\
+    Joachim Ågotnes (kapittel: Programmering)}
+\end{center}
+\clearpage
+
+\input{Text/Forord.tex}
+
+\tableofcontents
+
+\clearpage
+\input{Text/Lese_kompendiet.tex}
+
+\input{Text/Notasjon.tex}
+\input{Text/Topologi.tex}
+\input{Text/Massebalanser.tex}
+
+
+\input{Text/Transport.tex}
+\input{Text/Kinematics_transposition.tex}
+
+\input{Text/Distributed.tex}
+\input{Text/Shellbalance.tex}
+
+
+\input{Text/Signaler_blockdiagram.tex}
+
+\input{Text/Timescale}
+\input{Text/Prog.tex}
+\input{Text/Oppsummering.tex}
+
+\end{document}
