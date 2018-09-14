@@ -1,6 +1,6 @@
 \clearpage
 \section{Reaksjoner og reaksjonskinetikk}\label{sec:kinetics}
-Reaksjoner sies å være fundamentet i kjemisk industri. Reaksjoner er interaksjoner mellom stoffer som skaper nye stoffer. I \cref{sec:balanse_enkel} så vi hvordan vi kan sette opp en balanse med \cref{eq:balanse_generell}. I dette kapittelet er vi bare interessert i stoffmengde så vi switcher ut $\Phi$ med $n$. Denne delen viser fram mange ligninger så det er bare å holde tunga rett i munnen. Vi skal prøve å gå slavisk gjennom dem en etter en. Vi starter med å sette opp den generelle balansen for stoffmengde i systemet:
+Reaksjoner sies å være fundamentet i kjemisk industri. Reaksjoner er interaksjoner mellom stoffer som skaper nye stoffer. I \cref{sec:balanse_enkel} så vi hvordan vi kan sette opp en balanse med \cref{eq:balanse_generell}. I dette kapittelet er vi bare interessert i stoffmengde så vi bytter ut $\Phi$ med $n$. Denne delen viser fram mange likninger så det er bare å holde tunga rett i munnen. Vi skal prøve å gå gjennom dem en etter en. Vi starter med å sette opp den generelle balansen for stoffmengde i systemet:
 
 \begin{equation}
     \label{eq:spacies_balance}
@@ -19,13 +19,13 @@ La oss si at systemet vårt ikke har transport inn og ut (e.g. batch reaktor, $\
 
 
 
-$\mymat{N}^T$ er den støkiometriske matrisen til reaksjonene, $\underline{\Tilde{\xi}}$ er reaksjonsraten som en funksjon av konsentrasjoner og $V$ er volum. Volum ganges inn i ligningen for at $\vectil{n}$ skal ha riktig benevning. Reaksjonraten er en funksjon av konsentrasjon og reaksjonsrate-konstant. 
+$\mymat{N}^T$ er den støkiometriske matrisen til reaksjonene, $\underline{\Tilde{\xi}}$ er reaksjonsraten som en funksjon av konsentrasjoner og $V$ er volum. Volum ganges inn i likningen for at $\vectil{n}$ skal ha riktig benevning. Reaksjonraten er en funksjon av konsentrasjon og reaksjonsrate-konstant. 
 
-\textbf{Eksempel}: Stochimetrisc species matrix\\
+\textbf{Eksempel}: Stoichimetric species matrix\\
 Den støkimetriske matrisen blir laget ved å sette alle reksjonene på hver kolonne og hver reaktant/produkt på hver rad. 
 \begin{align*}
-    R_{x1}:&\hspace{1cm} \ce{4 NH3 + 5 O2 \leftrightarrow 4 NO + 6 H2O} \\
-    R_{x2}:&\hspace{1cm} \ce{2NO + O2 \leftrightarrow 2NO2}\\
+    R_{x1}:&\hspace{1cm} \ce{4 NH3 + 5 O2 \leftrightarrow } \,\ce{ 4NO + 6 H2O} \\
+    R_{x2}:&\hspace{1cm} \ce{2NO + O2 \leftrightarrow }\, \ce{ 2NO2}\\
 \end{align*}
 \begin{equation}
     \mymat{N} = 
@@ -37,15 +37,17 @@ Den støkimetriske matrisen blir laget ved å sette alle reksjonene på hver kol
                   \ce{NO2} & 0 & 2
                   }
 \end{equation}\\
-Husk at vi jobber med den trasponerte av $\mymat{N}$ i \cref{eq:generation_species}. 
+Husk at vi jobber med den transponerte av $\mymat{N}$ i \cref{eq:generation_species}. 
 \subsection{Kjemisk potensial}
 Men hvordan vet vi hvilken vei som vil dominere reaksjonen? I \cref{sec:transport_effort} lærte vi om effortvariabler som driver transport. I kjemiske reaksjoner er det kjemisk potensial som bestemmer likevekten mellom reaktantene og produktene:
 \begin{equation}
-    \mu = \Big(
+    \mu_i = \Big(
     \frac{\partial U}{\partial n_i}
     \Big)_{S,V,n_{j\neq i}}
 \end{equation}
-Likevel er det vanlig å bruke konsentrasjon som variabel i reaksjonligninger siden konsentrasjon er lettere å fysisk måle enn kjemisk potensial. Vi bruker ikke mye tid på dette men det er viktig å vite at den favoriserte reaksjonen er den som skaper den laveste endringen i kjemisk potensial $\Delta \mu$. Dette bygger opp under det du lærte om Gibbs frie energi i Prosessteknologi. Kjemisk potensial er avhengig av temperatur og kan også bli presentert som avviket fra ideell løsning: 
+Likevel er det vanlig å bruke konsentrasjon som variabel i reaksjonlikninger siden konsentrasjon er lettere å fysisk måle enn kjemisk potensial. Det viktig å vite at med kjemisk potensial i dette avsnittet er at den favoriserte reaksjonen er den som skaper den laveste endringen i kjemisk potensial $\Delta \mu$. 
+
+En alternativ måte å representere kjemisk potensial er i form av avvik fra ideell løsning. Istedet for å gå gjennom utledning fra energibalanser er denne metoden empirisk og tar utgangspunkt i kjent data. Med andre ord så regnes det kjemisk potensialet fra residualet til den ideelle løsningen. 
 
 \begin{equation}
     \begin{split}
@@ -56,7 +58,7 @@ Likevel er det vanlig å bruke konsentrasjon som variabel i reaksjonligninger si
 
 
 \subsection{Bestemme minimum sett med reaksjoner}\label{sec:set_med_reaksjoner}
-La oss si at vi ikke vet reaksjonene men har fått vite at vi har en menge forskjellige stoffer og ønsker å finne ut hvilke reaksjoner som skjer. 
+La oss si at vi ikke vet reaksjonene, men har fått vite at vi har en menge forskjellige stoffer og ønsker å finne ut hvilke reaksjoner som skjer. 
 
 \textbf{Eksempel}:
 Vi har reaktantene:
@@ -65,7 +67,7 @@ Vi har reaktantene:
     \label{eq:minimum_species}
    \ce{H2O,CH4,CO,CO2,H2}
 \end{equation}
-Ved å se på stoffene i \ref{eq:minimum_species} trekker vi fram hvilke atomer de fem stoffene er bygd opp av. Her har vi 3 forskjellige atomer.
+Ved å se på stoffene i \cref{eq:minimum_species} trekker vi fram hvilke atomer de 5 stoffene er bygd opp av. Her har vi 3 forskjellige atomer.
 
 \begin{equation}
     \label{eq:minimum_species_atom}
@@ -116,7 +118,7 @@ For å finne antall reaksjoner må vi finne nullspacet til matrisen (null$(\myma
     \end{bmatrix}
 \end{align}
 
-Siden nullspacet til $\mymat{C}$ er en 5x2 matrise vet vi at vi har 2 frie variabler (2 kolonner) som gjør at ranken til $\mymat{C}$ er 3. Nå som vi vet at vi har to frie variabler kan vi konstruere 2 reaksjoner fra nullspacet vårt:
+Fra nullspacet vårt ser vi at $\mymat{C}$ har 2 uavhengige rader som betyr at $\mymat{C}$ har 2 frie variabler. Med andre ord så er ranken til $\mymat{C}$ 3. Nå som vi vet at vi har to frie variabler kan vi konstruere 2 reaksjoner fra nullspacet vårt:
 
 \begin{equation}
     \mymat{N} = 
@@ -141,7 +143,7 @@ Siden nullspacet til $\mymat{C}$ er en 5x2 matrise vet vi at vi har 2 frie varia
     \underline{\Tilde{\xi}}(\vec{c}) := \mymat{K}\,g_r(\vec{c})
 \end{equation}
 
-$\mymat{K}$ er en diagonal matrise bestående av reaksjonratene ($\xi$), hvor hver rad representerer en reaksjon. $g_r(\vec{c})$ er en funksjon av reaktantene til reaksjonen. For å forklare \cref{eq:reaksjonsrate} så disker vi opp med et eksempel. 
+$\mymat{K}$ er en diagonal matrise bestående av reaksjonratene ($\xi$)\footnote{I RekTek brukes notasjonen $r_i$ for reaksjonsrater.}, hvor hver rad representerer en reaksjon. $g_r(\vec{c})$ er en funksjon av reaktantene til reaksjonen. For å forklare \cref{eq:reaksjonsrate} så disker vi opp med et eksempel. 
 
 \textbf{Eksempel}: Tre reaksjoner\\
 Si at vi har tre reaksjoner med tre reaksjonsrater:
@@ -151,7 +153,7 @@ Si at vi har tre reaksjoner med tre reaksjonsrater:
     \ce{C ->[\Tilde{\xi}_3] D}
 \end{center}
 
-Dette gir oss en $\underline{\Tilde{\xi}}$ vektor med tre elementer og en 3x3 matrise for $\mymat{K}$. Fra reaksjonsligningen antar vi at reaksjonen bare går en vei, så reaksjonsraten er kun avhengig av konsentrasjonen til reaktanten. Vi setter opp de tre reaksjonligningene for A,B og C:
+Dette gir oss en $\underline{\Tilde{\xi}}$ vektor med tre elementer og en 3x3 matrise for $\mymat{K}$. Fra reaksjonslikningen antar vi at reaksjonen bare går én vei, så reaksjonsraten er kun avhengig av konsentrasjonen til reaktanten. Vi setter opp de tre reaksjonlikningene for A,B og C:
 
 \begin{align}
     \Tilde{\xi}_1 =& k^r_1\,c_A \\[0.3em]
@@ -159,7 +161,7 @@ Dette gir oss en $\underline{\Tilde{\xi}}$ vektor med tre elementer og en 3x3 ma
     \Tilde{\xi}_3 =& k^r_1\,c_C \\
 \end{align}
 
-Med tre utrykk for reaksjonratene setter vi dem sammen til et system av ligninger:
+Med tre utrykk for reaksjonratene setter vi dem sammen til et system av likninger:
 \begin{align}
     \label{eq:reaksjonsrate_utvidet1}
     \underline{\Tilde{\xi}}(\vec{c}) =& \mymat{K}\,\mymat{S}\vec{c}
@@ -168,7 +170,7 @@ Med tre utrykk for reaksjonratene setter vi dem sammen til et system av ligninge
     \begin{bmatrix}
     \Tilde{\xi}_1 \\[0.3em]
     \Tilde{\xi}_2 \\[0.3em]
-    \Tilde{\xi}_2
+    \Tilde{\xi}_3
     \end{bmatrix}   
     =
     \begin{bmatrix}
@@ -190,12 +192,12 @@ Med tre utrykk for reaksjonratene setter vi dem sammen til et system av ligninge
    c_D
    \end{bmatrix}
 \end{align}
-\cref{eq:reaksjonsrate_utvidet1} er det samme som \cref{eq:reaksjonsrate} hvor av vi har satt inn $\mymat{S}\,\vec{c}$ for $g_r(\vec{c})$. Fra \cref{eq:reaksjonsrate_utvidet2} kan vi se at vi har et uttrykk for hver reaksjonrate. 
+\cref{eq:reaksjonsrate_utvidet1} er det samme som \cref{eq:reaksjonsrate} hvorav vi har satt inn $\mymat{S}\,\vec{c}$ for $g_r(\vec{c})$. Fra \cref{eq:reaksjonsrate_utvidet2} kan vi se at vi har et uttrykk for hver reaksjonrate. 
 
 
 
 \subsection{Reaksjonsratekonstanten}
-Reaksjonsratekonstansten er ikke konstant, ironisk nok, men sterkt avhengig av temperatur. Ofte bruker man Arrhenius ligning for å beregne denne $"$konstanten$"$. Arrhenius ligning kjenner du sikker igjen fra tidligere fag.
+Reaksjonsratekonstansten er ikke konstant, ironisk nok, men sterkt avhengig av temperatur. Ofte bruker man Arrhenius likning for å beregne denne ``konstanten''. Arrhenius likning kjenner du sikkert igjen fra tidligere fag.
 
 \begin{equation}
     \label{eq:arrhenius}
@@ -205,7 +207,7 @@ Reaksjonsratekonstansten er ikke konstant, ironisk nok, men sterkt avhengig av t
 \begin{align*}
     k^0_r =&\, \text{Pre-exponential factor} \\
     E_A =&\, \text{Aktiveringsenergi} \\
-    R =&\, \text{Universal gasskonstant} \\
+    R =&\, \text{Universell gasskonstant} \\
     T =&\, \text{Temperatur}
 \end{align*}
 

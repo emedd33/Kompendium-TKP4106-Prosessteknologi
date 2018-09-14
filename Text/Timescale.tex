@@ -17,7 +17,7 @@ En modell er alltid bygget på et sett med antagelser som divergerer modellen fr
 \end{figure}
 
 
-Vi har mange måter å gå fram på for å redusere modeller og det er i all hovedsak 4 angrepsvinkler vi bruker. De fire forskjellige metodene blir nærmere forklart i det kommende eksempelet i \cref{sec:tre_sjo}. 
+Vi har mange måter å gå fram på for å redusere modeller. Vi bruker i hovedsak 4 angrepsvinkler. De fire forskjellige metodene blir nærmere forklart i det kommende eksempelet i \cref{sec:tre_sjo}. 
 \begin{enumerate}
     \label{lst:reduction}
     \item Ekspandere det som er konstant
@@ -27,7 +27,7 @@ Vi har mange måter å gå fram på for å redusere modeller og det er i all hov
 \end{enumerate}
 
 \subsection{Eksempel: Tre innsjøer}\label{sec:tre_sjo}
-Vi ønsker å modellerer vannet som renner fra en stor innsjø (R) til en mindre (C) og videre til en enda mindre innsjø (S). For å forklare reduksjonen best mulig trekker vi fram en enkel topologi:
+Vi ønsker å modellere vannet som renner fra en stor innsjø (R) til en mindre (C) og videre til en enda mindre innsjø (S). For å forklare reduksjonen best mulig trekker vi fram en enkel topologi:
 
 
 \begin{figure}[H]
@@ -44,7 +44,7 @@ Den fulle modellen for topologien for \cref{fig:time_scale_topo} gir ligningene:
     \dot{\Phi}_S =&\, \hat{\Phi}_{C|S}
 \end{align}
 
-Vi gjøre reduksjon ved bruk av de fire angrepsvinklene. I ABC-heftet kapittel 16 har de en matematisk forklaring på reduksjonen, den har vi valgt å ikke ta med til fordel for den intuitive forklaringen.  
+Vi gjør reduksjon ved bruk av de fire angrepsvinklene. I ABC-heftet kapittel 16 har de en matematisk forklaring på reduksjonen, den har vi valgt å ikke ta med til fordel for den intuitive forklaringen.  
 
 \begin{center}
     \textbf{1:} Ekspandere det som er konstant.
@@ -68,12 +68,12 @@ Dette gir oss en ny modell:
     \textbf{2:} Introdusere event dynamic.
 \end{center}
 
-Hvis vi antar at volumet S er minimalt iforhold til C, kan vi anta at det som går ut av C til S er neglisjerbart iforhold til transporten fra C til S.
+Hvis vi antar at volumet S er minimalt forhold til C, kan vi anta at det som går ut av C til S er neglisjerbart forhold til transporten fra R til C.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.5]{Figures/time_scale_topo2.png}
-    \caption{Topologi for tre innsjøer hvor transporten fra C til S er så minimal at det har ingen påvirkning på modellen.}
+    \caption{Topologi for tre innsjøer hvor transporten fra C til S er så minimal at det ikke har noen påvirkning på modellen.}
     \label{fig:time_scale_topo2}
 \end{figure}
 
@@ -83,7 +83,7 @@ Hvis vi antar at volumet S er minimalt iforhold til C, kan vi anta at det som g�
     \textbf{3:} Analysere den raske dynamikken (small time scale).
 \end{center}
 
-Vi tar fram topologien i \cref{fig:time_scale_topo1}, etter ekspansjonen av det konstante domenet. Setter inn en lineær modell for transport som vi lærte i \cref{sec:linear_transport}.
+Vi tar fram topologien i \cref{fig:time_scale_topo1}, etter ekspansjonen av det konstante domenet, og setter inn en lineær modell for transport som vi lærte i \cref{sec:linear_transport}.
 
 \begin{align}
     \dot{\Phi}_C =&\, \hat{\Phi}_{R|C} - \hat{\Phi}_{C|S}\\
