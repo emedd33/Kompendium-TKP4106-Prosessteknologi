@@ -2,28 +2,29 @@
 \section{Programmering}\label{sec:prog}
 Programmering i prosessmodellering er utfordrende på flere plan. For det første er det forventet at du kan en del av det du har lært i ITGK, prosessteknikk og tidligere mattefag. Hvis du ikke husker disse metodene anbefaler vi deg å lese deg opp på dette før du begynner på programmeringsdelen. I prossmod er det forventet at du skal kunne bruke numerikk til å løse sett med ODE (Ordinary Differational Equations). I tillegg er det forventet at diverse problemer av skal gjøres objektorientert. Dette kan være utfordrende og krever en del tid, men vi skal prøve å guide deg gjennom de viktigste punktene i objektorientert programmering. Hvis du greier å lære deg dette har du et stort fortrinn til vårfaget TDT4102 - Prosedyre- og objektorientert programmering (C++), som vi anbefaler enhver student på IKP å ta.
 
-\subsection{Løse ODE med programmering}
-Fra \cref{sec:numerisk_approksimasjon} lærte vi hvordan man approksimerte en differensialligning med bruk av Taylor utvidelser. tilstanden i punkt $i+1$ kan ofte beregnes hvis vi vet tilstanden i punkt $i$. For at dette skal komme litt tydeligere fram ser vi tilbake til eksempelet fra \cref{sec:euler_numerical}. Fra eksempelet bruke Forwards method til å komme fram til to eksplisitte ligninger hvor $x_{i+1}$ ble beregnet fra $x_i$ og $z_i$.
+ %\subsection{Løse ODE med programmering}
+ 
+% Fra \cref{sec:numerisk_approksimasjon} lærte vi hvordan man approksimerte en differensialligning med bruk av Taylor utvidelser. tilstanden i punkt $i+1$ kan ofte beregnes hvis vi vet tilstanden i punkt $i$. For at dette skal komme litt tydeligere fram ser vi tilbake til eksempelet fra \cref{sec:euler_numerical}. Fra eksempelet bruke Forwards method til å komme fram til to eksplisitte ligninger hvor $x_{i+1}$ ble beregnet fra $x_i$ og $z_i$.
 
-\begin{align}
-    \label{eq:eulers_methdo_example2}
-    x_{i+1} = x_i +\Delta z(e^{x_i} + \ln (z_i))&, \hspace{1cm} z_{i+1} = z_i + \Delta z
-\end{align}
+% \begin{align}
+%     \label{eq:eulers_methdo_example2}
+%     x_{i+1} = x_i +\Delta z(e^{x_i} + \ln (z_i))&, \hspace{1cm} z_{i+1} = z_i + \Delta z
+% \end{align}
 
-Ligningene vi har nå er perfekt å putte inn i et programmeringsspråk. Dette er fordi at vi kan loope over alle posisjonene $i$ for å finne ut hva x er i en posisjon. La oss si at $x$ er \textcolor{red}{isdhfsd} og z er posisjonen i en reaktor hvor $z_{start}$ er start og $z_{slutt}$ er enden av reaktoren. Vi starter med å initialiserer de variablene vi vet. I dette eksempelet sier vi at reaktoren er 5 meter lang og at vi ønsker beregne 100 posisjoner i reaktoren. 
+% Ligningene vi har nå er perfekt å putte inn i et programmeringsspråk. Dette er fordi at vi kan loope over alle posisjonene $i$ for å finne ut hva x er i en posisjon. La oss si at $x$ er \textcolor{red}{isdhfsd} og z er posisjonen i en reaktor hvor $z_{start}$ er start og $z_{slutt}$ er enden av reaktoren. Vi starter med å initialiserer de variablene vi vet. I dette eksempelet sier vi at reaktoren er 5 meter lang og at vi ønsker beregne 100 posisjoner i reaktoren. 
 
-\textbf{Del 1 (Kode):}
-\begin{lstlisting}[language=python]
-class Katt: #Klassen katt
-    #Medlemsvariabler
-    antall_ben = 4 
-    navn ="" #Default navn
+% \textbf{Del 1 (Kode):}
+% \begin{lstlisting}[language=python]
+% class Katt: #Klassen katt
+%     #Medlemsvariabler
+%     antall_ben = 4 
+%     navn ="" #Default navn
     
-    #Constructor
-    def __init__(self, navn): #Lager Katte-objektet med spesifisert navn
-        self.navn = navn #Endrer navnet til katten fra "" til det vi spesifiserte
+%     #Constructor
+%     def __init__(self, navn): #Lager Katte-objektet med spesifisert navn
+%         self.navn = navn #Endrer navnet til katten fra "" til det vi spesifiserte
 
-\end{lstlisting}
+% \end{lstlisting}
 
 \subsection{Klasser og objekter}
 Til nå har dere ofte programmert i en fil med definering av variabler øverst i filen og så skrevet viktige funksjonener under. I IT-verdenen er dette kronglete siden et program kan trenge flere titusen linjer med koder så vi må ha et system for å sortere koden. Samtidig vil operasjoner i programmet gjenta seg og vi ønsker ikke å skrive en kode flere ganger. Av den grunn er objektorientert programmering fantastisk siden vi kan generalisere hvordan en del av koden skal oppføre seg i forhold til en annen del. Formelt sett er klasser et overordnet rammesystem for hvordan objekter kommuniserer sammen. Det kan være alt fra hvordan en bil ser ut til hvordan et matematisk system fungerer. Før dere blir mer forvirret trekker vi fram et eksempel på klasser og objekter.
