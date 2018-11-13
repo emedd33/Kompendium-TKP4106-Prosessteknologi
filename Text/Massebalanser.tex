@@ -62,7 +62,7 @@ Vi har et system bestående av fire lumped systems. Ved å benytte oss av samme 
 \subsection{Incidence matrix}
 I modellering får vi ofte et system som består av flere titalls mindre systemer som gjør det vanskelig å holde styr på alle balansene. Det er derfor ønskelig å benytte seg av vektorer og matriser. 
 
-Ved utgangspunkt i (ligningssett) \ref{eq:massebalanser_vanskelig1} definerer vi vektoren for akkumulering og transport:\\ 
+Ved utgangspunkt i (likningssett) \ref{eq:massebalanser_vanskelig1} definerer vi vektoren for akkumulering og transport:\\ 
 \begin{center}
     Vektor for akkumulering: $\underline{\dot{\Phi}}$ =
 $[\dot{\Phi}_a,\dot{\Phi}_b,\dot{\Phi}_c,\dot{\Phi}_d]$ \\
@@ -71,7 +71,7 @@ $[\hat{\Phi}_{a|b},\hat{\Phi}_{c|b},\hat{\Phi}_{b|d}]$
     
 \end{center}
 
-Vi bruker disse vektorene til å representere balansene fra (ligningssett) \ref{eq:massebalanser_vanskelig1} i en samlet matrise som har navn \textit{Incidence Matrix}.
+Vi bruker disse vektorene til å representere balansene fra (likningssett) \ref{eq:massebalanser_vanskelig1} i en samlet matrise som har navn \textit{Incidence Matrix}.
 
 \begin{equation}
     \textbf{\doubleunderline{F}} = 
@@ -82,13 +82,13 @@ Vi bruker disse vektorene til å representere balansene fra (ligningssett) \ref{
                   \dot{\Phi}_d & 0 & 0 & +1
                   }
 \end{equation}
-Hver rad i incidence matrix representerer en balanse og hver kolonne representerer transport fra et volum til et annet. Ved å sette opp incidence matrix kan vi skrive ligningsettet \ref{eq:massebalanser_vanskelig1} som:
+Hver rad i incidence matrix representerer en balanse og hver kolonne representerer transport fra et volum til et annet. Ved å sette opp incidence matrix kan vi skrive likningsettet \ref{eq:massebalanser_vanskelig1} som:
 
 \begin{equation}
    \underline{\dot{\Phi}} = \textbf{\doubleunderline{F}}\hspace{0.1cm}\underline{\hat{\Phi}}
 \end{equation}
 
-Her har vi nå satt sammen et ligningsett inn til en ligning med vektorer og matriser. Senere i kompendiet vil vi fortsette med denne notasjonen for å vise den lineære algebraen som kommer fram når vi modellerer. Bakgrunnen for å bruke denne notasjonen fremfor å forklare det med ligninger er fordi lineær algebra har strengere krav for operasjoner enn operasjoner på skalarer i en enkel ligning. Hvis du nå tenker ``Men jeg husker ikke så mye fra Matte 3'', sorry brah! Lineær algebra kommer du deg ikke utenom på IKP. Likevel, hvis du føler det er vanskelig å forholde seg til notasjonen så kan det hjelpe å skrive ut matrisen til et sett med ligninger og forholde seg til dem istedet. 
+Her har vi nå satt sammen et likningsett inn til en ligning med vektorer og matriser. Senere i kompendiet vil vi fortsette med denne notasjonen for å vise den lineære algebraen som kommer fram når vi modellerer. Bakgrunnen for å bruke denne notasjonen fremfor å forklare det med likninger er fordi lineær algebra har strengere krav for operasjoner enn operasjoner på skalarer i en enkel likning. Hvis du nå tenker ``Men jeg husker ikke så mye fra Matte 3'', sorry brah! Lineær algebra kommer du deg ikke utenom på IKP. Likevel, hvis du føler det er vanskelig å forholde seg til notasjonen så kan det hjelpe å skrive ut matrisen til et sett med ligninger og forholde seg til dem istedet. 
 
 \clearpage
 \subsection{Blokkmatriser}

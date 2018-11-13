@@ -25,15 +25,24 @@ Videre, la oss sette opp balansen basert på komponent A (merk at vi også kunne
     \overbrace{\frac{\partial m_A}{\partial t}}^{\text{Akkumulert}} = \overbrace{A \cdot \hat{m}_A\big|_z}^{\text{Inn}} - \overbrace{A \cdot \hat{m}_A\big|_{z+\Delta z}}^{\text{Ut}} - \overbrace{\underbrace{A \cdot \Delta z}_\text{$\Delta V$} \cdot \xi_A}^{\text{Generert}} 
 \end{split}
 \end{equation}
-   Det kan hjelpe å se på benevningnene til utrykkene når du jobber med shell balance for å forstå hvordan du setter opp leddene. Merk at vi $\hat{m}_A$ er fluksen av masse gjennom tverrsnittsarealet i $z$ eller $z + \Delta z$ . For at du ikke skal forvirres av likningen går vi gjennom hvert ledd:
-\begin{align*}
-     \frac{\partial m_A}{\partial t}:&\, \text{Endring av }m_A\text{ inne i kontrollvolumet}\\
-     A \cdot \hat{m}_A\big|_z:&\, \text{ Transport av A inn til kontrollvolumet ved posisjon }z\text{ ganget med tverrsnitt arealet (A)} \\
-     A \cdot \hat{m}_A\big|_{z+\Delta z}:&\, m_A \text{ Transport av A ut av kontrollvolumet ved posisjon }z+\Delta z \text{ ganget med tverrsnitt arealet (A)} \\
-     A\cdot \Delta z \cdot \xi_A:&\, \text{Tap eller generering av A inne i kontrollvolumet ganget med volumet av unit cellen} 
-\end{align*}
-Ligningen vi har nå satt har et variaber som er definert i posisjon $z$ og $z + \Delta z$. Som oftest har vi ikke kjennskap til posisjonen $z + \Delta z$ og vi må finne en måte å eliminere $\hat{m}_A\big|_{z+\Delta z}$ fra ligningen vår.
-Vi i hovedsak to metoder vi kan benytte oss for å få en løsbar ligning:
+   Det kan hjelpe å se på benevningnene til utrykkene når du jobber med shell balance for å forstå hvordan du setter opp leddene. Merk at $\hat{m}_A$ er fluksen av masse gjennom tverrsnittsarealet i $z$ eller $z + \Delta z$ . For at du ikke skal forvirres av likningen går vi gjennom hvert ledd:
+   
+%\begin{align*}
+%    \frac{\partial m_A}{\partial t}:&\, \text{Endring av }m_A\text{ inne i kontrollvolumet}\\
+%    A \cdot \hat{m}_A\big|_z:&\, \text{ Transport av A inn til kontrollvolumet ved posisjon }z\text{ ganget med tverrsnitt arealet (A)} \\
+%    A \cdot \hat{m}_A\big|_{z+\Delta z}:&\, m_A \text{ Transport av A ut av kontrollvolumet ved posisjon }z+\Delta z \text{ ganget med tverrsnitt arealet (A)} \\
+%     A\cdot \Delta z \cdot \xi_A:&\, \text{Tap eller generering av A inne i kontrollvolumet ganget med volumet av unit cellen} 
+%\end{align*}
+\begin{center}
+    \begin{tabular}{c c}
+     $\frac{\partial m_A}{\partial t}$:    & \makecell{\text{Endring av }$m_A$\text{ inne i kontrollvolumet}} \\[0.4cm]
+     $A \cdot \hat{m}_A\big|_z$: & \makecell{\text{ Transport av A inn til kontrollvolumet ved posisjon }$z$\text{ ganget \\ med tverrsnitt arealet (A)}} \\[0.4cm]
+      $A \cdot \hat{m}_A\big|_{z+\Delta z}$: & \makecell{\text{ Transport av A ut av kontrollvolumet ved posisjon }$z+\Delta z$ \text{  \\ ganget med tverrsnitt arealet (A)}} \\[0.4cm]
+      $A\cdot \Delta z \cdot \xi_A$: & \makecell{\text{Tap eller generering av A inne i kontrollvolumet ganget \\ med volumet av unit cellen}}
+    \end{tabular}
+\end{center}
+Likningen vi har nå satt har et variaber som er definert i posisjon $z$ og $z + \Delta z$. Som oftest har vi ikke kjennskap til posisjonen $z + \Delta z$ og vi må finne en måte å eliminere $\hat{m}_A\big|_{z+\Delta z}$ fra likningen vår.
+Vi har i hovedsak to metoder vi kan benytte oss for å få en løsbar likning:
 \begin{itemize}
     \item Definisjon av den deriverte
     \item Taylorrekke

@@ -33,20 +33,20 @@ Litt skummel formel, men likevel nyttig å kunne (pst, dette er fra Matte 1 om d
     &\downarrow \\
     \frac{dx_i}{dz} &\approx \frac{x_{i+1}-x_i}{\Delta z}
 \end{align}
-Nå som vi har en approksimering for $\frac{dx_i}{dz}$ kan vi sette denne inn for ukjente differensialer, f. eks. transportligninger. Approksimeringen vi har i ligningen over er navngitt \textit{Forward method} og er forholdsvis enkel å bruke. Under har vi lagt fram de vi mener er de viktigste numeriske metodene for approksimering av differensialer. 
+Nå som vi har en approksimering for $\frac{dx_i}{dz}$ kan vi sette denne inn for ukjente differensialer, f. eks. transportligninger. Approksimeringen vi har i ligningen over er navngitt \textit{Forward differences} og er forholdsvis enkel å bruke. Under har vi lagt fram de vi mener er de viktigste numeriske metodene for approksimering av differensialer. 
 
 \begin{equation}
     \begin{split}
     \label{eq:numerical_approx}        
     \text{Forward method: }\frac{dx}{dz}\Big|_i &\approx \frac{x_{i+1}-x_i}{\Delta z} \\
-    \text{Central method 1st order: }\frac{dx}{dz}\Big|_i &\approx \frac{x_{i+1}-x_{i-1}}{2\Delta z}\\
-    \text{Central method 2st order: }\frac{d^2x}{dz^2}\Big|_i &\approx \frac{x_{i-1}-2x_i+x_{i+1}}{(\Delta z)^2}
+    \text{Central differences 1st order: }\frac{dx}{dz}\Big|_i &\approx \frac{x_{i+1}-x_{i-1}}{2\Delta z}\\
+    \text{Central differences 2nd order: }\frac{d^2x}{dz^2}\Big|_i &\approx \frac{x_{i-1}-2x_i+x_{i+1}}{(\Delta z)^2}
     \end{split}
 \end{equation}
     
 
 \subsection{Numeriske skjemaer}
-Med den numeriske approksimasjonen kan vi substituere ligningene fra (\ref{eq:numerical_approx}) inn i en differensial ligning slik at vi kan benytte oss av programmering til å løse problemet. Uten å bruke for mye tid og krefter på å forklare dette trekker vi fram et enkelt eksempel.
+Med den numeriske approksimasjonen kan vi substituere likningene fra (\ref{eq:numerical_approx}) inn i en differensial likning slik at vi kan benytte oss av programmering til å løse problemet. Uten å bruke for mye tid og krefter på å forklare dette trekker vi fram et enkelt eksempel.
 
 \subsubsection{Eksempel: Euler's method}\label{sec:euler_numerical}
 
@@ -54,7 +54,7 @@ Med den numeriske approksimasjonen kan vi substituere ligningene fra (\ref{eq:nu
     \frac{dx}{dz} = e^x + \ln (z)  
 \end{equation}
 
-Vi setter inn Forwards method for differensialet så ligningen kan løses eksplisitt for $x_{i+1}$.
+Vi setter inn Forward differences metoden for differensialet så likningen kan løses eksplisitt for $x_{i+1}$.
 \begin{align}
     \frac{x_{i+1}-x_i}{\Delta z} &= e^{x_i} + \ln (z_i)  \\
     &\downarrow \\
@@ -77,6 +77,6 @@ På denne formen kan vi benytte oss av forskjellige numeriske sjemaer som vist u
 \end{align}
 
 \textbf{Ekstra:}\\
-Hvorfor skal man bruke det ene skjemaet over det andre? Det har å gjøre med konvergeringen og nøyaktigheten til det numeriske skjemaet. Siden dette er approksimeringer vil den numeriske løsningen avvike fra den ekte løsningen. Avhengig av problemet vi står overfor vil en metode være bedre enn en annen. I forskjellige tilfeller vil et skjema gi en rask løsning mens et annet skjema ikke vil gi en løsning i det hele tatt. Hvis du synes dette er nyttig og vil lære mer, anbefaler vi å ta faget TKT4140, numeriske beregninger, senere i studiet.  
+Hvorfor skal man bruke det ene skjemaet over det andre? Det har å gjøre med konvergeringen og nøyaktigheten til det numeriske skjemaet. Siden dette er approksimeringer vil den numeriske løsningen avvike fra den ekte løsningen. Avhengig av problemet vi står overfor vil en metode være bedre enn en annen. I forskjellige tilfeller vil et skjema gi en rask løsning mens et annet skjema ikke vil gi en løsning i det hele tatt. Hvis du synes dette er nyttig og vil lære mer, anbefaler vi å ta faget TKT4140 Numeriske beregninger, senere i studiet.  
 
 

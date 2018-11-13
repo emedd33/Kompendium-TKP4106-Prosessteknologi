@@ -1,6 +1,6 @@
 \clearpage
 \section{Programmering}\label{sec:prog}
-Programmering i prosessmodellering er utfordrende på flere plan. For det første er det forventet at du kan en del av det du har lært i ITGK, prosessteknikk og tidligere mattefag. Hvis du ikke husker disse metodene anbefaler vi deg å lese deg opp på dette før du begynner på programmeringsdelen. I prossmod er det forventet at du skal kunne bruke numerikk til å løse sett med ODE (Ordinary Differational Equations). I tillegg er det forventet at diverse problemer av skal gjøres objektorientert. Dette kan være utfordrende og krever en del tid, men vi skal prøve å guide deg gjennom de viktigste punktene i objektorientert programmering. Hvis du greier å lære deg dette har du et stort fortrinn til vårfaget TDT4102 - Prosedyre- og objektorientert programmering (C++), som vi anbefaler enhver student på IKP å ta.
+Programmering i prosessmodellering er utfordrende på flere plan. For det første er det forventet at du kan en del av det du har lært i ITGK, Prosessteknikk og tidligere mattefag. Hvis du ikke husker disse metodene anbefaler vi deg å lese deg opp på dette før du begynner på programmeringsdelen. I prossmod er det forventet at du skal kunne bruke numerikk til å løse sett med ODE (Ordinary Differational Equations). I tillegg er det forventet at diverse problemer av skal gjøres objektorientert. Dette kan være utfordrende og krever en del tid, men vi skal prøve å guide deg gjennom de viktigste punktene i objektorientert programmering. Hvis du greier å lære deg dette har du et stort fortrinn til vårfaget TDT4102 - Prosedyre- og objektorientert programmering (C++), som vi anbefaler enhver student på IKP å ta.
 
 \subsection{Løse ODE med programmering}
  
@@ -37,7 +37,7 @@ Vi har en tank med utløp som har parameterne gitt i tabell \cref{tab:tank_param
 \end{enumerate}
 
 \textbf{Løsningsforslag til punkt 1:} \\
-Vi ønsker å finne ut hvor lang tid det tar å tømme den åpne tanken med vann. For å gjøre dette må vi først sette opp en enkel modell for systemet. Ved å bruke den generelle ligningen \cref{eq:akkumulering_generell} for massebevaring setter vi opp konserveringslikningene for masse som tidligere:
+Vi ønsker å finne ut hvor lang tid det tar å tømme den åpne tanken med vann. For å gjøre dette må vi først sette opp en enkel modell for systemet. Ved å bruke den generelle \cref{eq:akkumulering_generell} for massebevaring setter vi opp konserveringslikningene for masse som tidligere:
 \begin{equation}
     \dot{m} = m_{inn} - m_{ut},
     \label{eq:mass_conservation}
@@ -62,7 +62,7 @@ Til slutt vil vi fjerne $q_{inn}$ siden det kun går masse ut av tanken, og det 
 \end{equation}
 
 \textbf{Løsningsforslag til punkt 2:} \\
-Vi vet fortsatt ingen ting om $q_{ut}$, så vi kan enda ikke løse \eqref{eq:dh_dt_non_closed}. For enkelhetens skyld benytter vi oss av hastighetsuttrykket for rørstrømning
+Vi vet fortsatt ingenting om $q_{ut}$, så vi kan enda ikke løse \eqref{eq:dh_dt_non_closed}. For enkelhetens skyld benytter vi oss av hastighetsuttrykket for rørstrømning
 \begin{equation}
     q = vA,
     \label{eq:volume_from_velocity}
@@ -163,13 +163,13 @@ Når vi kjører koden så får vi ut plottet i \cref{fig:ODE_tank_plot}.
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.8]{Text/tank.eps}
-    \caption{}
+    \caption{Plott av tankens høyde som funksjon av tiden.}
     \label{fig:ODE_tank_plot}
 \end{figure}
 
 \newpage
 \subsection{Klasser og objekter}
-Til nå har dere ofte programmert i en fil med definering av variabler øverst i filen og så skrevet viktige funksjonener under. I IT-verdenen er dette kronglete siden et program kan trenge flere titusen linjer med koder så vi må ha et system for å sortere koden. Samtidig vil operasjoner i programmet gjenta seg og vi ønsker ikke å skrive en kode flere ganger. Av den grunn er objektorientert programmering fantastisk siden vi kan generalisere hvordan en del av koden skal oppføre seg i forhold til en annen del. Formelt sett er klasser et overordnet rammesystem for hvordan objekter kommuniserer sammen. Det kan være alt fra hvordan en bil ser ut til hvordan et matematisk system fungerer. Før dere blir mer forvirret trekker vi fram et eksempel på klasser og objekter.
+Til nå har dere ofte programmert i en fil med definering av variabler øverst i filen og så skrevet viktige funksjoner under. I IT-verdenen er dette kronglete siden et program kan trenge flere titusen linjer med koder så vi må ha et system for å sortere koden. Samtidig vil operasjoner i programmet gjenta seg og vi ønsker ikke å skrive en kode flere ganger. Av den grunn er objektorientert programmering fantastisk siden vi kan generalisere hvordan en del av koden skal oppføre seg i forhold til en annen del. Formelt sett er klasser et overordnet rammesystem for hvordan objekter kommuniserer sammen. Det kan være alt fra hvordan en bil ser ut til hvordan et matematisk system fungerer. Før dere blir mer forvirret trekker vi fram et eksempel på klasser og objekter.
 
 \subsubsection{Eksempel: Katter og hunder}
 Tenk deg at du har lager et dataspill med en åpen verden og sjefen din ber deg om å fylle verdenen med katter. Du tenker deg om og kommer fram til følgende konklusjon: Alle kattene i denne verdenen har et navn og har fire bein. Istedet for å programmere dette for hver eneste katt lager vi et generelt rammeverk som gjelder alle katter.
