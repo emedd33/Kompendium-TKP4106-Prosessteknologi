@@ -30,7 +30,9 @@
 \usepackage{makecell}
 \usepackage{csquotes}
 \usepackage{mhchem}
+\usepackage{siunitx}
 \usepackage{listings}
+\usepackage{textcomp}
 
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -78,12 +80,13 @@
 \newcommand{\mymat}[1]{\doubleunderline{\textbf{#1}}}
 \newcommand{\vectil}[1]{\underline{\Tilde{\textbf{#1}}}}
 \renewcommand{\vec}[1]{\underline{\textbf{#1}}}
+\usepackage{textcomp}
 
-%souble underscore
+%double underscore
 \newlength\dunder
 \settowidth{\dunder}{\_}
 \newcommand{\twound}{\rule{2\dunder}{0.2pt}}
-
+\DeclareSIUnit\atm{atm}
 %%
 
 
@@ -106,7 +109,7 @@
 
 \title{Kompendium i TKP4106 Prosessmodellering \\
 \large{ABC på 123}}
-\author{Eskild Ruud Mageli}
+\author{Eskild Ruud Mageli\\ Sindre Bakke Øyen}
 %    \small{co-forfatter}\\
 %    \small{Anders Runningen}}
 %\subtitle{A closer look at the expenses}
@@ -130,23 +133,36 @@
     \end{center}
 \thispagestyle{empty}
 \clearpage
+\newpage
 \thispagestyle{empty}
-\begin{center}
-\topskip0pt
-\vspace*{\fill}
-\large{Til HC-kontoret}
-\vspace*{\fill}
+Utforming og sideombrekking: \LaTeX \\
+Illustrasjoner: Inkscape og paint.net\\
+Andre illustrasjoner er printet med tillatelse fra Heinz A. Preizig. \\
+Programmeringsverktøy: python 3.6.6 \\
+\vfill
 
+ABC på 123\\
+\textcopyright \text{ }Eskild Ruud Mageli og Sindre Bakke Øyen 2018 \\
+\email{eskild.emedd33@gmail.com} \\
+\email{sindre.bakke.oyen@ntnu.no} \vfill
+Høiskolens Chemikerforening har tillatelse til å distribuere bokens innhold til alle studerende medlemmer hvor innkjøpspris skal dekke kostnader for printing. Høiskolens Chemikerforening har ikke lov til selge boken for profitt men har lov til å runde prisen av boken opp til nærmerste ti-krone.
 
-     \vfill
+\vfill
     \Large{\textbf{Medvirkende til kompendiet}}\\
-    
     \large{Anders Runningen\\
     Kristine Øya  \\
-    Sindre Bakke Øyen \\
     Peder Langsholt Holmqvist\\
     Joachim Ågotnes 
     }
+\clearpage
+\begin{center}
+\topskip0pt
+\vspace*{\fill}
+\large{Til min kjære 96-flaske}
+\vspace*{\fill}
+
+
+     
 \end{center}
 \clearpage
 
